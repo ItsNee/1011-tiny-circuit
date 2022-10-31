@@ -195,7 +195,7 @@ def network_configboi(hostname, value):
 
 ############################################################################################################################
 @app.route('/api/linux/init/<hostname>')
-def initboi(hostname):
+def initboi2(hostname):
     hostname = str(hostname)
     try:
         mySql_insert_query = "INSERT INTO linux (hostname) VALUES ('{}') ".format(hostname)
