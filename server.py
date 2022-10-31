@@ -68,7 +68,7 @@ def tinotino(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set password_hashes = {} where hostname ={}".format(insertValue, hostname) #"""Update Laptop set Price = 7000 where id = 1"""
+        mySql_insert_query = "UPDATE windows set password_hashes='{}' where hostname='{}'".format(insertValue, hostname) #"""Update Laptop set Price = 7000 where id = 1"""
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
