@@ -208,7 +208,7 @@ def initboi2(hostname):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/password_hashes/<value>')
-def password_hashesboi(hostname, value):
+def password_hashesboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -223,7 +223,7 @@ def password_hashesboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/command_history/<value>')
-def command_historyboi(hostname, value):
+def command_historyboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -238,7 +238,7 @@ def command_historyboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/network_config/<value>')
-def network_configboi(hostname, value):
+def network_configboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -253,7 +253,7 @@ def network_configboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/crontab_entries/<value>')
-def crontab_entriesboi(hostname, value):
+def crontab_entriesboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -268,7 +268,7 @@ def crontab_entriesboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/user_accounts/<value>')
-def user_accountsboi(hostname, value):
+def user_accountsboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -283,7 +283,7 @@ def user_accountsboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/active_connections/<value>')
-def active_connectionsboi(hostname, value):
+def active_connectionsboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -298,7 +298,7 @@ def active_connectionsboi(hostname, value):
     return "DABALYOU"
 
 @app.route('/api/linux/upd/<hostname>/last_logins_ssh/<value>')
-def last_logins_sshboi(hostname, value):
+def last_logins_sshboi2(hostname, value):
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
