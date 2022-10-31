@@ -52,6 +52,20 @@ def api():
 @app.route('/api/windows/init/<hostname>')
 def detect_hash(hostname):
     hostname = str(hostname)
+    try:
+        mySql_insert_query = "INSERT INTO windows (hostname) VALUES ('{}') ".format(hostname)
+        cursor = connection.cursor()
+        cursor.execute(mySql_insert_query)
+        connection.commit()
+        cursor.close()
+    except mysql.connector.Error as error:
+        return("Failed to insert record: {}".format(error))
+    return "DABALYOU"
+
+@app.route('/api/windows/upd/<hostname>/password_hashes/<value>')
+def detect_hash(hostname):
+    hostname = str(hostname)
+    value = str(value)
     mySql_insert_query = "INSERT INTO windows (hostname) VALUES ('{}') ".format(hostname)
     cursor = connection.cursor()
     cursor.execute(mySql_insert_query)
