@@ -63,15 +63,17 @@ def detect_hash(hostname):
     return "DABALYOU"
 
 @app.route('/api/windows/upd/<hostname>/password_hashes/<value>')
-def detect_hash(hostname):
+def tinotino(hostname, value):
     hostname = str(hostname)
     value = str(value)
-    mySql_insert_query = "INSERT INTO windows (hostname) VALUES ('{}') ".format(hostname)
-    cursor = connection.cursor()
-    cursor.execute(mySql_insert_query)
-    connection.commit()
-    print(cursor.rowcount, "Record inserted successfully into Laptop table")
-    cursor.close()
+    try:
+        mySql_insert_query = "INSERT INTO windows (hostname) VALUES ('{}') ".format(hostname)
+        cursor = connection.cursor()
+        cursor.execute(mySql_insert_query)
+        connection.commit()
+        cursor.close()
+    except mysql.connector.Error as error:
+        return("Failed to insert record: {}".format(error))
     return "DABALYOU"
 
 app.run(host='0.0.0.0', port=6969)
