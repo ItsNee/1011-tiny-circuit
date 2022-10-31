@@ -66,7 +66,7 @@ def detect_hash(hostname):
 def tinotino(hostname, value):
     hostname = str(hostname)
     value = str(value)
-    insertValue = base64.decode(value)
+    insertValue = base64.b64decode(value)
     try:
         mySql_insert_query = "UPDATE windows set password_hashes = '{}' where hostname ='{}'".format(insertValue, hostname)
         cursor = connection.cursor()
