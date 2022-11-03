@@ -14,7 +14,7 @@ import mysql.connector
 
 app = flask.Flask(__name__)
 #app.config["DEBUG"] = True
-connection = mysql.connector.connect(host='localhost',database='1011db',user='nee',password='password')
+connection = mysql.connector.connect(host='127.0.0.1',database='1011db',user='nee',password='password')
 
 def run_command(command):
     return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read()
@@ -228,7 +228,7 @@ def command_historyboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set command_history='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set command_history='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
