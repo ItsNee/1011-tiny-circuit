@@ -132,7 +132,7 @@ def user_accountsboi(hostname, value):
         return("Failed: {}".format(error))
     return "DABALYOU"
 
-@app.route('/api/windows/upd/<hostname>/active_connections/<value>')
+@app.route('/api/windows/upd/<hostname>/active_connections/<value>', methods=['POST'])
 def active_connectionsboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
@@ -150,7 +150,7 @@ def active_connectionsboi(hostname, value):
         return("Failed: {}".format(error))
     return "DABALYOU"
 
-@app.route('/api/windows/upd/<hostname>/command_history/<value>')
+@app.route('/api/windows/upd/<hostname>/command_history/<value>', methods=['POST'])
 def command_historyboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
@@ -168,7 +168,7 @@ def command_historyboi(hostname, value):
         return("Failed: {}".format(error))
     return "DABALYOU"
 
-@app.route('/api/windows/upd/<hostname>/nondefault_services/<value>')
+@app.route('/api/windows/upd/<hostname>/nondefault_services/<value>', methods=['POST'])
 def nondefault_servicesboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
