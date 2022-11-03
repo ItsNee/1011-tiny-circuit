@@ -136,7 +136,9 @@ def user_accountsboi(hostname, value):
 def active_connectionsboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
-    insertValue = base64.b64decode(value).decode('utf-8')
+    headers = flask.request.headers
+    # insertValue = base64.b64decode(value).decode('utf-8')
+    insertValue = base64.b64decode(headers['slatt']).decode('utf-8')
     try:
         mySql_insert_query = "UPDATE windows set active_connections='{}' where hostname='{}'".format(insertValue, hostname) 
         cursor = connection.cursor()
@@ -168,7 +170,9 @@ def command_historyboi(hostname, value):
 def nondefault_servicesboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
-    insertValue = base64.b64decode(value).decode('utf-8')
+    headers = flask.request.headers
+    # insertValue = base64.b64decode(value).decode('utf-8')
+    insertValue = base64.b64decode(headers['slatt']).decode('utf-8')
     try:
         mySql_insert_query = "UPDATE windows set nondefault_services='{}' where hostname='{}'".format(insertValue, hostname) 
         cursor = connection.cursor()
