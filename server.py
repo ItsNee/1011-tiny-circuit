@@ -102,13 +102,15 @@ def autorunsboi(hostname, value):
         return("Failed: {}".format(error))
     return "DABALYOU"
 
-@app.route('/api/windows/upd/<hostname>/scheduled_tasks/<value>')
+@app.route('/api/windows/upd/<hostname>/scheduled_tasks/<value>', methods=['POST'])
 def scheduled_tasksboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
-    insertValue = base64.b64decode(value).decode('utf-8')
+    data = flask.request.data
+    # insertValue = base64.b64decode(value).decode('utf-8')
+    insertValue = base64.b64decode(data.decode('utf-8'))
     try:
-        mySql_insert_query = "UPDATE windows set scheduled_tasks='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set scheduled_tasks='{}' where hostname='{}'".format(data.decode('utf-8'), hostname)
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
