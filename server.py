@@ -177,7 +177,7 @@ def nondefault_servicesboi(hostname, value):
     # insertValue = base64.b64decode(value).decode('utf-8')
     insertValue = base64.b64decode(data.decode('utf-8'))
     try:
-        mySql_insert_query = "UPDATE windows set nondefault_services='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set nondefault_services='{}' where hostname='{}'".format(data.decode('utf-8'), hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
