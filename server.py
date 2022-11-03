@@ -141,7 +141,7 @@ def active_connectionsboi(hostname, value):
     # insertValue = base64.b64decode(value).decode('utf-8')
     insertValue = base64.b64decode(data.decode('utf-8'))
     try:
-        mySql_insert_query = "UPDATE windows set active_connections='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set active_connections='{}' where hostname='{}'".format(data.decode('utf-8'), hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
