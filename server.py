@@ -150,14 +150,14 @@ def active_connectionsboi(hostname, value):
         return("Failed: {}".format(error))
     return "DABALYOU"
 
-@app.route('/api/windows/upd/<hostname>/command_history/<value>', methods=['POST'])
+@app.route('/api/windows/upd/<hostname>/command_history/<value>')
 def command_historyboi(hostname, value):
     hostname = str(hostname)
     value = str(value)
     headers = flask.request.headers
     data = flask.request.data
-    # insertValue = base64.b64decode(value).decode('utf-8')
-    insertValue = base64.b64decode(data.decode('utf-8'))
+    insertValue = base64.b64decode(value).decode('utf-8')
+    # insertValue = base64.b64decode(data.decode('utf-8'))
     try:
         mySql_insert_query = "UPDATE windows set command_history='{}' where hostname='{}'".format(insertValue, hostname) 
         cursor = connection.cursor()
