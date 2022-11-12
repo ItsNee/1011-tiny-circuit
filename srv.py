@@ -63,7 +63,7 @@ def password_hashesboi(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set password_hashes='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set password_hashes='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -78,7 +78,7 @@ def startup_applicationsboi(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set startup_applications='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set startup_applications='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -93,7 +93,7 @@ def autorunsboi(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set autoruns='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set autoruns='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -125,7 +125,7 @@ def user_accountsboi(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set user_accounts='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set user_accounts='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -161,7 +161,7 @@ def command_historyboi(hostname, value):
     insertValue = base64.b64decode(value).decode('utf-8')
     # insertValue = base64.b64decode(data.decode('utf-8'))
     try:
-        mySql_insert_query = "UPDATE windows set command_history='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set command_history='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -194,7 +194,7 @@ def network_configboi(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE windows set network_config='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE windows set network_config='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
