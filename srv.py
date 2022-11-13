@@ -224,7 +224,7 @@ def password_hashesboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set password_hashes='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set password_hashes='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -254,7 +254,7 @@ def network_configboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set network_config='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set network_config='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -269,7 +269,7 @@ def crontab_entriesboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set crontab_entries='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set crontab_entries='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -284,7 +284,7 @@ def user_accountsboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set user_accounts='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set user_accounts='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -299,7 +299,7 @@ def active_connectionsboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set active_connections='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set active_connections='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
@@ -314,7 +314,7 @@ def last_logins_sshboi2(hostname, value):
     value = str(value)
     insertValue = base64.b64decode(value).decode('utf-8')
     try:
-        mySql_insert_query = "UPDATE linux set last_logins_ssh='{}' where hostname='{}'".format(insertValue, hostname) 
+        mySql_insert_query = "UPDATE linux set last_logins_ssh='{}' where hostname='{}'".format(value, hostname) 
         cursor = connection.cursor()
         cursor.execute(mySql_insert_query)
         connection.commit()
